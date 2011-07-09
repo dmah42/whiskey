@@ -239,9 +239,11 @@
 	switch (activeTool) {
 		case TOOL_PENCIL:
 		case TOOL_ERASER:
-			[path lineToPoint:loc];
-			shouldDrawPath = YES;
-			[self setNeedsDisplay:YES];
+			if (path) {
+				[path lineToPoint:loc];
+				shouldDrawPath = YES;
+				[self setNeedsDisplay:YES];
+			}
 			break;
 			
 		case TOOL_POINT:
@@ -251,9 +253,8 @@
 }
 
 - (void)mouseUp:(NSEvent *)theEvent {
-	if (path) {
+	if (path)
 		[path release];
-	}
 	shouldDrawPath = NO;
 }
 
@@ -262,9 +263,8 @@
 }
 
 - (void)onResize {
-	if (![self inLiveResize]) {
+	if (![self inLiveResize])
 		[self setDrawCanvas:resultCanvas];
-	}
 }
 
 - (void)viewDidEndLiveResize {
