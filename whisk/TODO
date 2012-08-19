@@ -1,0 +1,17 @@
+Transitions between pages
+Text layer
+Background layers
+Track all in x,y,z and sort by z. render x,y.
+Behaviours
+  Move to
+  move along path
+  show/hide
+  play animation (looping)
+Init from JSON
+
+TOOL
+  Engine backend but different render
+    show borders, hotspots, etc
+  Drag and drop images/sprites
+  Save to JSON
+  Draw hotspots
