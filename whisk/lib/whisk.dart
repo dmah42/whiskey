@@ -45,10 +45,10 @@ void main() {
   _scene = new Scene(canvas.getContext('2d'));
 
   final robot_sheet = new Thing();
-  robot_sheet._sprite = new Sprite('robot2.png', 0, 0);
+  robot_sheet._sprite = new Sprite('data/robot2.png', 0, 0);
  
   final robot = new Thing();
-  robot._sprite = new AnimatedSprite('robot2.png', 50, 50, 200, 200, true);
+  robot._sprite = new AnimatedSprite('data/robot2.png', 50, 50, 200, 200, true);
   robot._hotspot = new HotSpot(robot._x, robot._y,
       robot._x + 200, robot._y + 200);
   robot._onClick = _MoveThingRight;
