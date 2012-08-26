@@ -3,15 +3,14 @@ Text layer
 Background layers
 Track all in x,y,z and sort by z. render x,y.
 Behaviours
-  Move to
   move along path
   show/hide
-  play animation (looping)
-Init from JSON
+  start animation (looping)
+Remove all nulls from _scene
 
 TOOL
   Engine backend but different render
+    might need reexport
     show borders, hotspots, etc
   Drag and drop images/sprites
-  Save to JSON
   Draw hotspots

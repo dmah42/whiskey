@@ -1,8 +1,7 @@
-
-typedef void OnClickHandler(Thing thing);
-
 class Thing {
-  Thing() : _sprite = null, _hotspot = null;
+  Thing(this._sprite)
+      : _hotspot = new HotSpot(0,0,0,0),
+        _onClick = new DoNothing();
 
   void Update(num timestep) {
     _sprite.Update(timestep);
@@ -14,7 +13,7 @@ class Thing {
     _sprite.Draw(context);
   }
 
-  bool is_hit(int x, int y) => _hotspot !== null && _hotspot.is_hit(x, y);
+  bool _is_hit(int x, int y) => _hotspot !== null && _hotspot.is_hit(x, y);
 
   int get _x() => _sprite._x;
   void set _x(int x) {
@@ -30,5 +29,5 @@ class Thing {
 
   Sprite _sprite;
   HotSpot _hotspot;
-  OnClickHandler _onClick;
+  Behaviour _onClick;
 }
