@@ -1,16 +1,14 @@
 class Thing {
-  Thing(this._sprite)
-      : _hotspot = new HotSpot(0,0,0,0),
-        _onClick = new DoNothing();
+  Thing(this._sprite) : _hotspot = null, _onClick = null;
 
-  void Update(num timestep) {
-    _sprite.Update(timestep);
+  void _update(num timestep) {
+    _sprite._update(timestep);
   }
 
-  void Draw(CanvasRenderingContext2D context) {
+  void _draw(CanvasRenderingContext2D context) {
     // TODO: pass through the timestep to allow animated sprites to be locked to
     // a particular frame-rate.
-    _sprite.Draw(context);
+    _sprite._draw(context);
   }
 
   bool _is_hit(int x, int y) => _hotspot !== null && _hotspot.is_hit(x, y);
@@ -25,6 +23,14 @@ class Thing {
   void set _y(int y) {
     _sprite._y = y;
     _hotspot._y = y;
+  }
+
+  Map<String, Dynamic> _toJSON() {
+    Map<String, Dynamic> attributes = new Map();
+    attributes['sprite'] = _sprite._toJSON();
+    attributes['hotspot'] = _hotspot == null ? null : _hotspot._toJSON();
+    attributes['onClick'] = _onClick == null ? null : _onClick._toJSON();
+    return attributes;
   }
 
   Sprite _sprite;

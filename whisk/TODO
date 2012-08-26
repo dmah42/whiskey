@@ -6,7 +6,7 @@ Behaviours
   move along path
   show/hide
   start animation (looping)
-Remove all nulls from _scene
+Finish data/scene.json
 
 TOOL
   Engine backend but different render

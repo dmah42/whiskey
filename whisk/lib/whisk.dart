@@ -5,7 +5,6 @@
 
 #source('animated_sprite.dart');
 #source('behaviour.dart');
-#source('behaviours/donothing.dart');
 #source('behaviours/movethingby.dart');
 #source('behaviours/movethingto.dart');
 #source('hotspot.dart');
@@ -18,10 +17,11 @@ Scene _scene = null;
 void loadScene(CanvasElement canvas, String json) {
   assert(_scene == null);
   _createScene(canvas);
-  _scene._things = JSON.parse(json);
+  Map<String, Dynamic> sceneJSON = JSON.parse(json);
+  _scene._fromJSON(sceneJSON);
 }
 
-String saveScene() => JSON.stringify(_scene._things);
+String saveScene() => JSON.stringify(_scene._toJSON());
 
 Scene scene() => _scene;
 
