@@ -3,8 +3,10 @@ class Thing {
 
   Thing._fromJSON(Map<String, Dynamic> json) {
     _sprite = new Sprite._fromJSON(json['sprite']);
-    _hotspot = new HotSpot._fromJSON(json['hotspot']);
-    _onClick = new Behaviour._fromJSON(json['onClick']);
+    _hotspot =
+      json['hotspot'] == null ? null : new HotSpot._fromJSON(json['hotspot']);
+    _onClick =
+      json['onClick'] == null ? null : new Behaviour._fromJSON(json['onClick']);
   }
 
   void _update(num timestep) {

@@ -17,6 +17,7 @@ class Scene {
     _context = canvas.getContext('2d');
     // TODO: touch events
     canvas.on.click.add((e) => _onClick(e as MouseEvent));
+    document.body.nodes.add(canvas);
   }
 
   void _add(Thing thing) => _things.add(thing);
