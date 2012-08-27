@@ -6,11 +6,10 @@ Behaviours
   move along path
   show/hide
   start animation (looping)
-Finish data/scene.json
 
 TOOL
   Engine backend but different render
-    might need reexport
     show borders, hotspots, etc
+    debug draw only?
   Drag and drop images/sprites
   Draw hotspots

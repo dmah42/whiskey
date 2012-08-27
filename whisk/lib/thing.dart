@@ -1,6 +1,12 @@
 class Thing {
   Thing(this._sprite) : _hotspot = null, _onClick = null;
 
+  Thing._fromJSON(Map<String, Dynamic> json) {
+    _sprite = new Sprite._fromJSON(json['sprite']);
+    _hotspot = new HotSpot._fromJSON(json['hotspot']);
+    _onClick = new Behaviour._fromJSON(json['onClick']);
+  }
+
   void _update(num timestep) {
     _sprite._update(timestep);
   }

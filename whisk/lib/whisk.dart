@@ -14,11 +14,10 @@
 
 Scene _scene = null;
 
-void loadScene(CanvasElement canvas, String json) {
+void loadScene(String json) {
   assert(_scene == null);
-  _createScene(canvas);
   Map<String, Dynamic> sceneJSON = JSON.parse(json);
-  _scene._fromJSON(sceneJSON);
+  _scene = new Scene._fromJSON(sceneJSON);
 }
 
 String saveScene() => JSON.stringify(_scene._toJSON());
@@ -29,11 +28,9 @@ void run() {
   window.requestAnimationFrame(_frame);
 }
 
-void _createScene(CanvasElement canvas) {
+void _createScene(int width, int height) {
   assert(_scene == null);
-  _scene = new Scene(canvas.getContext('2d'), canvas.width, canvas.height);
-  // TODO: touch events
-  canvas.on.click.add((e) => _scene._onClick(e as MouseEvent));
+  _scene = new Scene(width, height);
 }
 
 void _frame(num timestep) {
@@ -41,8 +38,8 @@ void _frame(num timestep) {
   window.requestAnimationFrame(_frame);
 }
 
-String createTestSceneJSON(CanvasElement canvas) {
-  _createScene(canvas);
+String createTestSceneJSON() {
+  _createScene(800, 600);
   final robot_sheet = new Thing(new Sprite('data/robot2.png', 0, 0));
  
   final robot = new Thing(

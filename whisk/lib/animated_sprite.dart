@@ -45,6 +45,7 @@ class AnimatedSprite extends Sprite {
     attributes['framewidth'] = _frameWidth;
     attributes['frameheight'] = _frameWidth;
     attributes['loop'] = _loop;
+    attributes['type'] = 'animated_sprite';
     return attributes;
   }
 

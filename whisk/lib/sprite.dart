@@ -5,6 +5,16 @@ class Sprite {
     _image.on.load.add((e) => _onImageLoaded(e.target as ImageElement));
   }
 
+  factory Sprite._fromJSON(Map<String, Dynamic> json) {
+    switch (json['type']) {
+      case 'sprite': return new Sprite(json['filename'], json['x'], json['y']);
+      case 'animated_sprite':
+        return new AnimatedSprite(json['filename'], json['x'], json['y'],
+            json['framewidth'], json['frameheight'], json['loop']);
+    }
+    assert(false);
+  }
+
   void _onImageLoaded(ImageElement e) {
     assert(!_loaded);
     print('Sprite.loaded ${e.src}');
@@ -23,6 +33,7 @@ class Sprite {
     attributes['x'] = _x;
     attributes['y'] = _y;
     attributes['filename'] = _image.src;
+    attributes['type'] = 'sprite';
     return attributes;
   }
 

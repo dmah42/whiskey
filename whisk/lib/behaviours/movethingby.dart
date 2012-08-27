@@ -1,5 +1,7 @@
 class MoveThingBy extends Behaviour {
   MoveThingBy(this._x, this._y);
+  MoveThingBy._fromJSON(Map<String, Dynamic> json) : this(json['x'], json['y']);
+
   void _run(Thing thing) {
     thing._x += _x;
     thing._y += _y;
@@ -12,7 +14,8 @@ class MoveThingBy extends Behaviour {
     return attributes;
   }
 
-  String get _name() => 'movethingby';
+  // TODO: first class type
+  String get _type() => 'movethingby';
 
   num _x, _y;
 }

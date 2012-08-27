@@ -1,6 +1,23 @@
 class Scene {
-  Scene(this._context, this._width, this._height)
-      : _things = new List<Thing>();
+  Scene(this._width, this._height)
+      : _things = new List<Thing>() {
+    _createCanvas();
+  }
+
+  Scene._fromJSON(Map<String, Dynamic> json)
+      : _width = json['width'],
+        _height = json['height'],
+        _things = new List<Thing>() {
+    json['things'].forEach((t) => _add(new Thing._fromJSON(t)));
+    _createCanvas();
+  }
+
+  void _createCanvas() {
+    CanvasElement canvas = new CanvasElement(_width, _height);
+    _context = canvas.getContext('2d');
+    // TODO: touch events
+    canvas.on.click.add((e) => _onClick(e as MouseEvent));
+  }
 
   void _add(Thing thing) => _things.add(thing);
 
