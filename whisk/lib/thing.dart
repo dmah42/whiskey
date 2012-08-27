@@ -19,7 +19,7 @@ class Thing {
     _sprite._draw(context);
   }
 
-  bool _is_hit(int x, int y) => _hotspot !== null && _hotspot.is_hit(x, y);
+  bool _is_hit(int x, int y) => _hotspot !== null && _hotspot._is_hit(x, y);
 
   int get _x() => _sprite._x;
   void set _x(int x) {
@@ -34,6 +34,7 @@ class Thing {
   }
 
   Map<String, Dynamic> _toJSON() {
+    print('$this');
     Map<String, Dynamic> attributes = new Map();
     attributes['sprite'] = _sprite._toJSON();
     attributes['hotspot'] = _hotspot == null ? null : _hotspot._toJSON();

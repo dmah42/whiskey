@@ -5,8 +5,10 @@
 
 #source('animated_sprite.dart');
 #source('behaviour.dart');
+#source('behaviours/changebehaviour.dart');
 #source('behaviours/movethingby.dart');
 #source('behaviours/movethingto.dart');
+#source('behaviours/sequence.dart');
 #source('hotspot.dart');
 #source('scene.dart');
 #source('sprite.dart');
@@ -46,7 +48,9 @@ String createTestSceneJSON() {
       new AnimatedSprite('data/robot2.png', 50, 50, 200, 200, true));
   robot._hotspot = new HotSpot(
       robot._x, robot._y, robot._x + 200, robot._y + 200);
-  robot._onClick = new MoveThingBy(200, 0);
+  robot._onClick = new Sequence(
+      [new MoveThingBy(200, 0), new MoveThingBy(-200, 0)],
+      200);
 
   _scene._add(robot_sheet);
   _scene._add(robot);

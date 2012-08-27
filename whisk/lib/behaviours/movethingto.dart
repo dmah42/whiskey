@@ -8,6 +8,7 @@ class MoveThingTo extends Behaviour {
   }
 
   Map<String, Dynamic> _toJSON() {
+    print('$this');
     Map<String, Dynamic> attributes = super._toJSON();
     attributes['x'] = _x;
     attributes['y'] = _y;
