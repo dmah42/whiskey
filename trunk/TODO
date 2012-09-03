@@ -3,7 +3,9 @@ Page transitions
   Load sprites on page switch
   Or load the prev/current/next pages
   Or load all into localstore/indexeddb
-Text layer
+Text wrapping
+  http://www.html5canvastutorials.com/tutorials/html5-canvas-wrap-text-tutorial/
+Text justification
 Track all in x,y,z and sort by z. render x,y.
 Behaviours
   move along path

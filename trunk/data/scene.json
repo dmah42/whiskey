@@ -1,7 +1,7 @@
 {
   "width": 800,
   "height": 600,
-  "currentPage": 0,
+  "current_page": 0,
   "pages": [{
     "things": [{
       "sprite": {
@@ -46,6 +46,14 @@
     }]
   },
   {
+    "words": {
+      "font":"32 pt Verdana",
+      "x":0,
+      "w":null,
+      "y":80,
+      "text":"Hello World!",
+      "color": "#00f"
+    },
     "things": [{
       "sprite": {
         "type": "sprite",

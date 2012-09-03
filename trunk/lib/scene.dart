@@ -1,7 +1,7 @@
 class Scene {
   Scene(this._width, this._height)
       : _pages = new List<Page>(),
-        _currentPage = 0 {
+        _current_page = 0 {
     _createCanvas();
   }
 
@@ -9,7 +9,7 @@ class Scene {
       : _width = json['width'],
         _height = json['height'],
         _pages = new List<Page>(),
-        _currentPage = json['currentPage'] {
+        _current_page = json['current_page'] {
     json['pages'].forEach((p) => _add(new Page._fromJSON(p)));
     _createCanvas();
   }
@@ -26,26 +26,26 @@ class Scene {
   void _add(Page page) => _pages.add(page);
 
   void _incPage() {
-    if (_currentPage < _pages.length - 1)
-      ++_currentPage;
-    print('now on page $_currentPage');
+    if (_current_page < _pages.length - 1)
+      ++_current_page;
+    print('now on page $_current_page');
   }
 
   void _decPage() {
-    if (_currentPage > 0)
-      --_currentPage;
-    print('now on page $_currentPage');
+    if (_current_page > 0)
+      --_current_page;
+    print('now on page $_current_page');
   }
 
   void _frame(num timestep) {
-    _pages[_currentPage]._update(timestep);
+    _pages[_current_page]._update(timestep);
     _context.clearRect(0, 0, _width, _height);
-    _pages[_currentPage]._draw(_context);
+    _pages[_current_page]._draw(_context);
   }
 
   void _onClick(MouseEvent e) {
     print('click at ${e.clientX}, ${e.clientY}');
-    _pages[_currentPage]._onClick(e);
+    _pages[_current_page]._onClick(e);
   }
 
   void _onKeyDown(KeyboardEvent e) {
@@ -64,7 +64,7 @@ class Scene {
     var attributes = new Map<String, Dynamic>();
     attributes['width'] = _width;
     attributes['height'] = _height;
-    attributes['currentPage'] = _currentPage;
+    attributes['current_page'] = _current_page;
     attributes['pages'] = _pages.map((p) => p._toJSON());
     return attributes;
   }
@@ -77,5 +77,5 @@ class Scene {
   int _width;
   int _height;
   List<Page> _pages;
-  int _currentPage;
+  int _current_page;
 }

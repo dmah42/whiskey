@@ -14,6 +14,7 @@
 #source('scene.dart');
 #source('sprite.dart');
 #source('thing.dart');
+#source('words.dart');
 
 Scene _scene = null;
 
@@ -59,6 +60,7 @@ String createTestSceneJSON() {
 
   var alien_page = new Page();
   alien_page._add(new Thing(new Sprite('data/alien.jpg', 60, 60)));
+  alien_page._addWords(new Words(0, 0, 55, 'Hello World!', '14 px sans-serif'));
 
   _scene._add(robot_page);
   _scene._add(alien_page);
