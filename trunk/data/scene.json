@@ -1,2 +1,61 @@
-{"width": 800, "height": 600, "things": [{ "sprite": { "type": "sprite", "y": 0, "x": 0, "filename": "data/robot2.png" }, "hotspot": null, "onClick": null }, { "sprite": { "type": "animated_sprite", "loop": true, "x": 50, "filename": "data/robot2.png", "y": 50, "frameheight": 200, "framewidth": 200 }, "hotspot": { "x": 50, "y": 50, "w": 200, "h": 200 }, "onClick": {"sequence":[{"y":0, "type":"movethingby","x":200},{"y":0,"type":"movethingby","x":-200}],"delay":500,"type":"sequence"}}]}
+{
+  "width": 800,
+  "height": 600,
+  "currentPage": 0,
+  "pages": [{
+    "things": [{
+      "sprite": {
+        "type": "sprite",
+        "y": 0,
+        "x": 0,
+        "filename": "data/robot2.png"
+      },
+      "hotspot": null,
+      "onClick": null
+    },
+    {
+      "sprite": {
+        "type": "animated_sprite",
+        "loop": true,
+        "x": 50,
+        "filename": "data/robot2.png",
+        "y": 50,
+        "frameheight": 200,
+        "framewidth": 200
+      },
+      "hotspot": {
+        "x": 50,
+        "y": 50,
+        "w": 200,
+        "h": 200
+      },
+      "onClick": {
+        "sequence": [{
+          "y":0,
+          "type":"movethingby",
+          "x":200
+        },
+        {
+          "y":0,
+          "type":"movethingby",
+          "x":-200
+        }],
+        "delay":500,
+        "type":"sequence"
+      }
+    }]
+  },
+  {
+    "things": [{
+      "sprite": {
+        "type": "sprite",
+        "y": 60,
+        "x": 60,
+        "filename": "data/alien.jpg"
+      },
+      "hotspot": null,
+      "onClick": null
+    }]
+  }]
+}
 

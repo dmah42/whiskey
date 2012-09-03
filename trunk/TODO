@@ -1,10 +1,13 @@
-Transitions between pages
+Page transitions
+  Load sprites on page switch
+  Or load the prev/current/next pages
+  Or load all into localstore/indexeddb
 Text layer
-Background layers
 Track all in x,y,z and sort by z. render x,y.
 Behaviours
   move along path
   show/hide
+    fade time
   start animation (looping)
 
 TOOL

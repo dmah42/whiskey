@@ -10,6 +10,7 @@
 #source('behaviours/movethingto.dart');
 #source('behaviours/sequence.dart');
 #source('hotspot.dart');
+#source('page.dart');
 #source('scene.dart');
 #source('sprite.dart');
 #source('thing.dart');
@@ -52,8 +53,15 @@ String createTestSceneJSON() {
       [new MoveThingBy(200, 0), new MoveThingBy(-200, 0)],
       200);
 
-  _scene._add(robot_sheet);
-  _scene._add(robot);
+  var robot_page = new Page();
+  robot_page._add(robot_sheet);
+  robot_page._add(robot);
+
+  var alien_page = new Page();
+  alien_page._add(new Thing(new Sprite('data/alien.jpg', 60, 60)));
+
+  _scene._add(robot_page);
+  _scene._add(alien_page);
 
   String sceneJSON = saveScene();
   _scene = null;

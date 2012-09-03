@@ -1,14 +1,16 @@
 class Scene {
   Scene(this._width, this._height)
-      : _things = new List<Thing>() {
+      : _pages = new List<Page>(),
+        _currentPage = 0 {
     _createCanvas();
   }
 
   Scene._fromJSON(Map<String, Dynamic> json)
       : _width = json['width'],
         _height = json['height'],
-        _things = new List<Thing>() {
-    json['things'].forEach((t) => _add(new Thing._fromJSON(t)));
+        _pages = new List<Page>(),
+        _currentPage = json['currentPage'] {
+    json['pages'].forEach((p) => _add(new Page._fromJSON(p)));
     _createCanvas();
   }
 
@@ -17,36 +19,53 @@ class Scene {
     _context = canvas.getContext('2d');
     // TODO: touch events
     canvas.on.click.add((e) => _onClick(e as MouseEvent));
+    document.on.keyDown.add((e) => _onKeyDown(e as KeyboardEvent));
     document.body.nodes.add(canvas);
   }
 
-  void _add(Thing thing) => _things.add(thing);
+  void _add(Page page) => _pages.add(page);
+
+  void _incPage() {
+    if (_currentPage < _pages.length - 1)
+      ++_currentPage;
+    print('now on page $_currentPage');
+  }
+
+  void _decPage() {
+    if (_currentPage > 0)
+      --_currentPage;
+    print('now on page $_currentPage');
+  }
 
   void _frame(num timestep) {
-    _things.forEach((e) => e._update(timestep));
-    
-    // Sort sprites by 'y' so the draw in the correct order.
-    // This should really be based on 'z'
-    _things.sort((a, b) => a._sprite._y - b._sprite._y);
-
+    _pages[_currentPage]._update(timestep);
     _context.clearRect(0, 0, _width, _height);
-    _things.forEach((e) => e._draw(_context));
+    _pages[_currentPage]._draw(_context);
   }
 
   void _onClick(MouseEvent e) {
     print('click at ${e.clientX}, ${e.clientY}');
-    _things.forEach((thing) {
-      if (thing._is_hit(e.clientX, e.clientY)) {
-        thing._onClick._run(thing);
-      }
-    });
+    _pages[_currentPage]._onClick(e);
+  }
+
+  void _onKeyDown(KeyboardEvent e) {
+    switch (e.keyIdentifier) {
+      case "Left":
+        _decPage();
+        break;
+
+      case "Right":
+        _incPage();
+        break;
+    }
   }
 
   Map<String, Dynamic> _toJSON() {
-    Map<String, Dynamic> attributes = new Map();
+    var attributes = new Map<String, Dynamic>();
     attributes['width'] = _width;
     attributes['height'] = _height;
-    attributes['things'] = _things.map((e) => e._toJSON());
+    attributes['currentPage'] = _currentPage;
+    attributes['pages'] = _pages.map((p) => p._toJSON());
     return attributes;
   }
 
@@ -57,5 +76,6 @@ class Scene {
   CanvasRenderingContext2D _context;
   int _width;
   int _height;
-  List<Thing> _things;
+  List<Page> _pages;
+  int _currentPage;
 }
