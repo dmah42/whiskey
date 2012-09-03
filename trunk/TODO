@@ -1,4 +1,5 @@
 Page transitions
+  Add mouse gesture
   Load sprites on page switch
   Or load the prev/current/next pages
   Or load all into localstore/indexeddb
@@ -9,6 +10,7 @@ Behaviours
   show/hide
     fade time
   start animation (looping)
+Touch events
 
 TOOL
   Engine backend but different render
