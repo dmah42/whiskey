@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class HotSpot {
   HotSpot(this._x, this._y, this._w, this._h);

@@ -73,16 +73,16 @@
     description="Analyze, and generate JS for engine and editor." />
 
   <target name="analyze">
-    <dart_analyze file="lib/whisk.dart" />
+    <dart_analyze file="lib/whiskey.dart" />
     <dart_analyze file="lib/editor.dart" />
   </target>
 
   <target name="generate-doc" description="Generate DartDoc for library.">
-    <dartdoc file="lib/whisk.dart" outDir="doc" />
+    <dartdoc file="lib/whiskey.dart" outDir="doc" />
   </target>
 
   <target name="generate-JS">
-    <dart2js file="test_whisk.dart" withChecks="${withChecks}" />
+    <dart2js file="test_whiskey.dart" withChecks="${withChecks}" />
   </target>
 
 </project>

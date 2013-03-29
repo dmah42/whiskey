@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Scene {
   Scene(this._width, this._height)

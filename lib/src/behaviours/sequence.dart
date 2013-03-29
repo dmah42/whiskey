@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Sequence extends Behaviour {
   Sequence(this._sequence, this._delay) : _runIndex = 0, _is_running = false;

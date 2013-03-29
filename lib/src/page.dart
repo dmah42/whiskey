@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Page {
   Page() : _things = new List<Thing>();

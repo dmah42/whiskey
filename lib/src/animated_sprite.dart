@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class AnimatedSprite extends Sprite {
   AnimatedSprite(String filename, int x, int y,

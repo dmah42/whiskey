@@ -1,5 +1,5 @@
 #import('dart:html');
-#import('lib/whisk.dart', prefix: 'whisk');
+#import('lib/whiskey.dart', prefix: 'whiskey');
 
 final SCREEN_WIDTH = 800;
 final SCREEN_HEIGHT = 600;
@@ -11,8 +11,8 @@ void main() {
 void onSuccess(XMLHttpRequest req) {
   if (req.readyState == XMLHttpRequest.DONE) {
     print('Received ${req.response}');
-    whisk.loadScene(req.response as String);
-    print('Starting whisk');
-    whisk.run();
+    whiskey.loadScene(req.response as String);
+    print('Starting whiskey');
+    whiskey.run();
   }
 }

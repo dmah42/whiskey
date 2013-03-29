@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class MoveThingTo extends Behaviour {
   MoveThingTo(this._x, this._y);

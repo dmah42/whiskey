@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Thing {
   Thing(this._sprite) : _hotspot = null, _onClick = null;

@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Words {
   Words(this._x, this._y, this._w, this._text, this._font);

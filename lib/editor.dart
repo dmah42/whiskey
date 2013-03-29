@@ -1,7 +1,7 @@
-import 'whisk.dart' as whisk;
+import 'whiskey.dart' as whiskey;
 
 void main() {
   print('--- JSON begin ---');
-  print(whisk.createTestSceneJSON());
+  print(whiskey.createTestSceneJSON());
   print('--- JSON end   ---');
 }

@@ -1,4 +1,4 @@
-library whisk;
+library whiskey;
 
 import 'dart:html';
 import 'dart:json' as JSON;

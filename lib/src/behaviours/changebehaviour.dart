@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class ChangeBehaviour extends Behaviour {
   ChangeBehaviour(this._behaviour);

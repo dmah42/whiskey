@@ -1,4 +1,4 @@
-part of whisk;
+part of whiskey;
 
 class Sprite {
   Sprite(String filename, this._x, this._y)
