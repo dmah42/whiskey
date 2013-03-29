@@ -1,4 +1,4 @@
-#import('lib/whisk.dart', prefix: 'whisk');
+import 'whisk.dart' as whisk;
 
 void main() {
   print('--- JSON begin ---');

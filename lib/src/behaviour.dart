@@ -1,7 +1,9 @@
-class Behaviour {
-  Behaviour() { }
+part of whisk;
 
-  factory Behaviour._fromJSON(Map<String, Dynamic> json) {
+class Behaviour {
+  Behaviour();
+
+  factory Behaviour._fromJSON(Map<String, dynamic> json) {
     switch (json['type']) {
       case 'changebehaviour': return new ChangeBehaviour._fromJSON(json);
       case 'movethingby': return new MoveThingBy._fromJSON(json);
@@ -11,10 +13,10 @@ class Behaviour {
     assert(false);
   }
 
-  abstract void _run(Thing thing);
-  abstract String get _type();
-  Map<String, Dynamic> _toJSON() {
-    Map<String, Dynamic> attributes = new Map();
+  void _run(Thing thing);
+  String get _type;
+  Map<String, dynamic> _toJSON() {
+    Map<String, dynamic> attributes = new Map();
     attributes['type'] = _type; // TODO: first class types. this.type.toString();
     return attributes;
   }

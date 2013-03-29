@@ -1,3 +1,5 @@
+part of whisk;
+
 class AnimatedSprite extends Sprite {
   AnimatedSprite(String filename, int x, int y,
     this._frameWidth, this._frameHeight, this._loop)
@@ -40,8 +42,8 @@ class AnimatedSprite extends Sprite {
                   _x, _y, _image.width, _image.height);
   }
 
-  Map<String, Dynamic> _toJSON() {
-    Map<String, Dynamic> attributes = super._toJSON();
+  Map<String, dynamic> _toJSON() {
+    Map<String, dynamic> attributes = super._toJSON();
     attributes['framewidth'] = _frameWidth;
     attributes['frameheight'] = _frameWidth;
     attributes['loop'] = _loop;

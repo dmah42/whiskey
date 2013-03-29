@@ -1,6 +1,8 @@
+part of whisk;
+
 class Sequence extends Behaviour {
   Sequence(this._sequence, this._delay) : _runIndex = 0, _is_running = false;
-  Sequence._fromJSON(Map<String, Dynamic> json)
+  Sequence._fromJSON(Map<String, dynamic> json)
       : _runIndex = 0, _is_running = false, _delay = json['delay'] {
     _sequence = json['sequence'].map((e) => new Behaviour._fromJSON(e));
   }
@@ -24,16 +26,16 @@ class Sequence extends Behaviour {
     window.setTimeout(_runOne, _delay);
   }
 
-  Map<String, Dynamic> _toJSON() {
+  Map<String, dynamic> _toJSON() {
     print('$this');
-    Map<String, Dynamic> attributes = super._toJSON();
+    Map<String, dynamic> attributes = super._toJSON();
     attributes['sequence'] = _sequence.map((e) => e._toJSON());
     attributes['delay'] = _delay;
     return attributes;
   }
 
   // TODO: first class type
-  String get _type() => 'sequence';
+  String get _type => 'sequence';
 
   List<Behaviour> _sequence;
   num _delay;

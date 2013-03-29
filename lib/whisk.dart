@@ -1,26 +1,26 @@
-#library('whisk');
+library whisk;
 
-#import('dart:html');
-#import('dart:json');
+import 'dart:html';
+import 'dart:json' as JSON;
 
-#source('animated_sprite.dart');
-#source('behaviour.dart');
-#source('behaviours/changebehaviour.dart');
-#source('behaviours/movethingby.dart');
-#source('behaviours/movethingto.dart');
-#source('behaviours/sequence.dart');
-#source('hotspot.dart');
-#source('page.dart');
-#source('scene.dart');
-#source('sprite.dart');
-#source('thing.dart');
-#source('words.dart');
+part 'src/animated_sprite.dart';
+part 'src/behaviour.dart';
+part 'src/behaviours/changebehaviour.dart';
+part 'src/behaviours/movethingby.dart';
+part 'src/behaviours/movethingto.dart';
+part 'src/behaviours/sequence.dart';
+part 'src/hotspot.dart';
+part 'src/page.dart';
+part 'src/scene.dart';
+part 'src/sprite.dart';
+part 'src/thing.dart';
+part 'src/words.dart';
 
 Scene _scene = null;
 
 void loadScene(String json) {
   assert(_scene == null);
-  Map<String, Dynamic> sceneJSON = JSON.parse(json);
+  Map<String, dynamic> sceneJSON = JSON.parse(json);
   _scene = new Scene._fromJSON(sceneJSON);
 }
 

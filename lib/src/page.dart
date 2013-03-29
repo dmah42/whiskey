@@ -1,6 +1,8 @@
+part of whisk;
+
 class Page {
   Page() : _things = new List<Thing>();
-  Page._fromJSON(Map<String, Dynamic> json)
+  Page._fromJSON(Map<String, dynamic> json)
       : _words = json['words'] == null ?
             null : new Words._fromJSON(json['words']),
         _things = new List<Thing>() {
@@ -37,8 +39,8 @@ class Page {
     });
   }
 
-  Map<String, Dynamic> _toJSON() {
-    var attributes = new Map<String, Dynamic>();
+  Map<String, dynamic> _toJSON() {
+    var attributes = new Map<String, dynamic>();
     attributes['things'] = _things.map((e) => e._toJSON());
     attributes['words'] = _words == null ? null : _words._toJSON();
     return attributes;

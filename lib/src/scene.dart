@@ -1,3 +1,5 @@
+part of whisk;
+
 class Scene {
   Scene(this._width, this._height)
       : _pages = new List<Page>(),
@@ -5,7 +7,7 @@ class Scene {
     _createCanvas();
   }
 
-  Scene._fromJSON(Map<String, Dynamic> json)
+  Scene._fromJSON(Map<String, dynamic> json)
       : _width = json['width'],
         _height = json['height'],
         _pages = new List<Page>(),
@@ -60,17 +62,13 @@ class Scene {
     }
   }
 
-  Map<String, Dynamic> _toJSON() {
-    var attributes = new Map<String, Dynamic>();
+  Map<String, dynamic> _toJSON() {
+    var attributes = new Map<String, dynamic>();
     attributes['width'] = _width;
     attributes['height'] = _height;
     attributes['current_page'] = _current_page;
     attributes['pages'] = _pages.map((p) => p._toJSON());
     return attributes;
-  }
-
-  void _fromJSON(Map<String, Dynamic> json) {
-    assert(false); // todo
   }
 
   CanvasRenderingContext2D _context;

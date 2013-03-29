@@ -1,3 +1,5 @@
+part of whisk;
+
 class Sprite {
   Sprite(String filename, this._x, this._y)
       : _image = new ImageElement(filename),
@@ -5,7 +7,7 @@ class Sprite {
     _image.on.load.add((e) => _onImageLoaded(e.target as ImageElement));
   }
 
-  factory Sprite._fromJSON(Map<String, Dynamic> json) {
+  factory Sprite._fromJSON(Map<String, dynamic> json) {
     switch (json['type']) {
       case 'sprite': return new Sprite(json['filename'], json['x'], json['y']);
       case 'animated_sprite':
@@ -28,8 +30,8 @@ class Sprite {
     ctx.drawImage(_image, _x, _y);
   }
 
-  Map<String, Dynamic> _toJSON() {
-    Map<String, Dynamic> attributes = new Map();
+  Map<String, dynamic> _toJSON() {
+    Map<String, dynamic> attributes = new Map();
     attributes['x'] = _x;
     attributes['y'] = _y;
     attributes['filename'] = _image.src;

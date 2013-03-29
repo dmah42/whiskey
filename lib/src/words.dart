@@ -1,6 +1,8 @@
+part of whisk;
+
 class Words {
   Words(this._x, this._y, this._w, this._text, this._font);
-  Words._fromJSON(Map<String, Dynamic> json)
+  Words._fromJSON(Map<String, dynamic> json)
       : _x = json['x'],
         _y = json['y'],
         _w = json['w'],
@@ -20,8 +22,8 @@ class Words {
     context.fillStyle = fill;
   }
 
-  Map<String, Dynamic> _toJSON() {
-    var attributes = new Map<String, Dynamic>();
+  Map<String, dynamic> _toJSON() {
+    var attributes = new Map<String, dynamic>();
     attributes['x'] = _x;
     attributes['y'] = _y;
     attributes['w'] = _w;

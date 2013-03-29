@@ -1,7 +1,9 @@
+part of whisk;
+
 class Thing {
   Thing(this._sprite) : _hotspot = null, _onClick = null;
 
-  Thing._fromJSON(Map<String, Dynamic> json) {
+  Thing._fromJSON(Map<String, dynamic> json) {
     _sprite = new Sprite._fromJSON(json['sprite']);
     _hotspot =
       json['hotspot'] == null ? null : new HotSpot._fromJSON(json['hotspot']);
@@ -19,23 +21,23 @@ class Thing {
     _sprite._draw(context);
   }
 
-  bool _is_hit(int x, int y) => _hotspot !== null && _hotspot._is_hit(x, y);
+  bool _is_hit(int x, int y) => _hotspot != null && _hotspot._is_hit(x, y);
 
-  int get _x() => _sprite._x;
+  int get _x => _sprite._x;
   void set _x(int x) {
     _sprite._x = x;
     _hotspot._x = x;
   }
 
-  int get _y() => _sprite._y;
+  int get _y => _sprite._y;
   void set _y(int y) {
     _sprite._y = y;
     _hotspot._y = y;
   }
 
-  Map<String, Dynamic> _toJSON() {
+  Map<String, dynamic> _toJSON() {
     print('$this');
-    Map<String, Dynamic> attributes = new Map();
+    Map<String, dynamic> attributes = new Map();
     attributes['sprite'] = _sprite._toJSON();
     attributes['hotspot'] = _hotspot == null ? null : _hotspot._toJSON();
     attributes['onClick'] = _onClick == null ? null : _onClick._toJSON();

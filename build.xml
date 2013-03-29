@@ -73,8 +73,8 @@
     description="Analyze, and generate JS for engine and editor." />
 
   <target name="analyze">
-    <dart_analyze file="whisk.dart" />
-    <dart_analyze file="editor.dart" />
+    <dart_analyze file="lib/whisk.dart" />
+    <dart_analyze file="lib/editor.dart" />
   </target>
 
   <target name="generate-doc" description="Generate DartDoc for library.">
@@ -82,8 +82,7 @@
   </target>
 
   <target name="generate-JS">
-    <dart2js file="whisk.dart" withChecks="${withChecks}" />
-    <dart2js file="editor.dart" withChecks="${withChecks}" />
+    <dart2js file="test_whisk.dart" withChecks="${withChecks}" />
   </target>
 
 </project>

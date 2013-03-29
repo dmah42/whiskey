@@ -1,12 +1,14 @@
+part of whisk;
+
 class HotSpot {
   HotSpot(this._x, this._y, this._w, this._h);
-  HotSpot._fromJSON(Map<String, Dynamic> json)
+  HotSpot._fromJSON(Map<String, dynamic> json)
       : this(json['x'], json['y'], json['w'], json['h']);
 
   bool _is_hit(num x, num y) => x > _x && x < _x + _w && y > _y && y < _y + _h;
 
-  Map<String, Dynamic> _toJSON() {
-    Map<String, Dynamic> attributes = new Map();
+  Map<String, dynamic> _toJSON() {
+    Map<String, dynamic> attributes = new Map();
     attributes['x'] = _x;
     attributes['y'] = _y;
     attributes['w'] = _w;
