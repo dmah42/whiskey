@@ -1,6 +1,6 @@
 part of whiskey;
 
-class Behaviour {
+abstract class Behaviour {
   Behaviour();
 
   factory Behaviour._fromJSON(Map<String, dynamic> json) {

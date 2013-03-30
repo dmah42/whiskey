@@ -1,4 +1,4 @@
-import 'whiskey.dart' as whiskey;
+import 'lib/whiskey.dart' as whiskey;
 
 void main() {
   print('--- JSON begin ---');

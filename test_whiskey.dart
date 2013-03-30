@@ -1,18 +1,14 @@
-#import('dart:html');
-#import('lib/whiskey.dart', prefix: 'whiskey');
+import 'dart:html';
+import 'lib/whiskey.dart' as whiskey;
 
 final SCREEN_WIDTH = 800;
 final SCREEN_HEIGHT = 600;
 
 void main() {
-  new XMLHttpRequest.get('data/scene.json', onSuccess);
-}
-
-void onSuccess(XMLHttpRequest req) {
-  if (req.readyState == XMLHttpRequest.DONE) {
-    print('Received ${req.response}');
-    whiskey.loadScene(req.response as String);
-    print('Starting whiskey');
-    whiskey.run();
-  }
+  HttpRequest.getString('data/scene.json').then((response) {
+      print('Received $response');
+      whiskey.loadScene(response);
+      print('Starting whiskey');
+      whiskey.run();
+  });
 }

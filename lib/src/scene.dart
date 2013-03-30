@@ -17,11 +17,11 @@ class Scene {
   }
 
   void _createCanvas() {
-    CanvasElement canvas = new CanvasElement(_width, _height);
+    CanvasElement canvas = new CanvasElement(width: _width, height: _height);
     _context = canvas.getContext('2d');
     // TODO: touch events
-    canvas.on.click.add((e) => _onClick(e as MouseEvent));
-    document.on.keyDown.add((e) => _onKeyDown(e as KeyboardEvent));
+    canvas.onClick.listen((e) => _onClick(e as MouseEvent));
+    document.onKeyDown.listen((e) => _onKeyDown(e as KeyboardEvent));
     document.body.nodes.add(canvas);
   }
 
@@ -46,17 +46,17 @@ class Scene {
   }
 
   void _onClick(MouseEvent e) {
-    print('click at ${e.clientX}, ${e.clientY}');
+    print('click at ${e.client.x}, ${e.client.y}');
     _pages[_current_page]._onClick(e);
   }
 
   void _onKeyDown(KeyboardEvent e) {
-    switch (e.keyIdentifier) {
-      case "Left":
+    switch (e.keyCode) {
+      case 0x25:  // Left
         _decPage();
         break;
 
-      case "Right":
+      case 0x27:  // Right
         _incPage();
         break;
     }

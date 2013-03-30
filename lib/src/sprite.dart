@@ -1,10 +1,11 @@
 part of whiskey;
 
+// TODO(dominic): Allow scaling of sprite.
 class Sprite {
   Sprite(String filename, this._x, this._y)
-      : _image = new ImageElement(filename),
+      : _image = new ImageElement(src: filename),
         _loaded = false {
-    _image.on.load.add((e) => _onImageLoaded(e.target as ImageElement));
+    _image.onLoad.listen((e) => _onImageLoaded(e.target as ImageElement));
   }
 
   factory Sprite._fromJSON(Map<String, dynamic> json) {

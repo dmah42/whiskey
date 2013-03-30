@@ -38,8 +38,9 @@ class AnimatedSprite extends Sprite {
 
   void _draw(CanvasRenderingContext2D ctx) {
     if (!_loaded) return;
-    ctx.drawImage(_image, _column, _row, _image.width, _image.height,
-                  _x, _y, _image.width, _image.height);
+    ctx.drawImageScaledFromSource(_image, _column, _row,
+                                  _image.width, _image.height,
+                                  _x, _y, _image.width, _image.height);
   }
 
   Map<String, dynamic> _toJSON() {

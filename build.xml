@@ -74,7 +74,8 @@
 
   <target name="analyze">
     <dart_analyze file="lib/whiskey.dart" />
-    <dart_analyze file="lib/editor.dart" />
+    <dart_analyze file="test_whiskey.dart" />
+    <dart_analyze file="test_editor.dart" />
   </target>
 
   <target name="generate-doc" description="Generate DartDoc for library.">

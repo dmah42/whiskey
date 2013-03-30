@@ -33,7 +33,7 @@ class Page {
 
   void _onClick(MouseEvent e) {
     _things.forEach((thing) {
-      if (thing._is_hit(e.clientX, e.clientY)) {
+      if (thing._is_hit(e.client.x, e.client.y)) {
         thing._onClick._run(thing);
       }
     });

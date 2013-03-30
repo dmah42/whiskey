@@ -23,7 +23,7 @@ class Sequence extends Behaviour {
       return;
     }
     _sequence[_runIndex++]._run(_thing);
-    window.setTimeout(_runOne, _delay);
+    new Timer(new Duration(milliseconds: _delay), _runOne);
   }
 
   Map<String, dynamic> _toJSON() {
