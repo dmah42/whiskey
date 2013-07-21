@@ -1,0 +1,6 @@
+name: whiskey
+version: 0.1.0
+description: An editor and engine for web-based interactive story-telling.
+author: Dominic Hamon <dominic@dmadev.com>
+dependencies:
+  browser: any
