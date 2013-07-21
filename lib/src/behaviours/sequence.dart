@@ -4,7 +4,7 @@ class Sequence extends Behaviour {
   Sequence(this._sequence, this._delay) : _runIndex = 0, _is_running = false;
   Sequence._fromJSON(Map<String, dynamic> json)
       : _runIndex = 0, _is_running = false, _delay = json['delay'] {
-    _sequence = json['sequence'].map((e) => new Behaviour._fromJSON(e));
+    _sequence = json['sequence'].map((e) => new Behaviour._fromJSON(e)).toList();
   }
 
   void _run(Thing thing) {

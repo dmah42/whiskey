@@ -2,3 +2,4 @@
 out/
 packages/
 pubspec.lock
+*.js*
