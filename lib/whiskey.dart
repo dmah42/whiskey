@@ -33,9 +33,11 @@ Scene scene() => _scene;
 
 void run({FrameCallback precallback, FrameCallback postcallback}) {
   window.requestAnimationFrame((num timestep) {
-      precallback(_scene._context);
+      if (precallback != null)
+        precallback(_scene._context);
       _frame(timestep);
-      postcallback(_scene._context);
+      if (postcallback != null)
+        postcallback(_scene._context);
   });
 }
 
