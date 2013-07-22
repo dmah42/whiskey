@@ -17,6 +17,8 @@ part 'src/sprite.dart';
 part 'src/thing.dart';
 part 'src/words.dart';
 
+typedef void FrameCallback(CanvasRenderingContext2D context);
+
 Scene _scene = null;
 
 void loadScene(String json) {
@@ -29,8 +31,12 @@ String saveScene() => JSON.stringify(_scene._toJSON());
 
 Scene scene() => _scene;
 
-void run() {
-  window.requestAnimationFrame(_frame);
+void run({FrameCallback precallback, FrameCallback postcallback}) {
+  window.requestAnimationFrame((num timestep) {
+      precallback(_scene._context);
+      _frame(timestep);
+      postcallback(_scene._context);
+  });
 }
 
 void _createScene(int width, int height) {
