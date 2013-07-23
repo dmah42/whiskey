@@ -47,7 +47,8 @@ class Scene {
 
   void _onClick(MouseEvent e) {
     print('click at ${e.client.x}, ${e.client.y}');
-    _pages[_current_page]._onClick(e);
+    if (_application.onClick(e) == false)
+      _pages[_current_page]._onClick(e);
   }
 
   void _onKeyDown(KeyboardEvent e) {

@@ -5,6 +5,7 @@ import 'dart:html';
 import 'dart:json' as JSON;
 
 part 'src/animated_sprite.dart';
+part 'src/application.dart';
 part 'src/behaviour.dart';
 part 'src/behaviours/changebehaviour.dart';
 part 'src/behaviours/movethingby.dart';
@@ -17,8 +18,7 @@ part 'src/sprite.dart';
 part 'src/thing.dart';
 part 'src/words.dart';
 
-typedef void FrameCallback(CanvasRenderingContext2D context);
-
+Application _application = new Application();
 Scene _scene = null;
 
 void loadScene(String json) {
@@ -31,13 +31,16 @@ String saveScene() => JSON.stringify(_scene._toJSON());
 
 Scene scene() => _scene;
 
-void run({FrameCallback precallback, FrameCallback postcallback}) {
+void setApplication(Application a) {
+  assert(a != null);
+  _application = a;
+}
+
+void run() {
   window.requestAnimationFrame((num timestep) {
-      if (precallback != null)
-        precallback(_scene._context);
+      _application.preRenderCallback(_scene._context);
       _frame(timestep);
-      if (postcallback != null)
-        postcallback(_scene._context);
+      _application.postRenderCallback(_scene._context);
   });
 }
 
