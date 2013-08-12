@@ -18,6 +18,11 @@ class Scene {
 
   void _createCanvas() {
     CanvasElement canvas = new CanvasElement(width: _width, height: _height);
+    // TODO: set this outside the library.
+    canvas.style
+        ..position = "absolute"
+        ..left = "50px"
+        ..top = "50px";
     _context = canvas.getContext('2d');
     // TODO: touch events
     canvas.onClick.listen((e) => _onClick(e as MouseEvent));
