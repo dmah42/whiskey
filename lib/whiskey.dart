@@ -38,9 +38,7 @@ void setApplication(Application a) {
 
 void run() {
   window.requestAnimationFrame((num timestep) {
-      _application.preRenderCallback(_scene._context);
       _frame(timestep);
-      _application.postRenderCallback(_scene._context);
   });
 }
 
@@ -50,7 +48,9 @@ void _createScene(int width, int height) {
 }
 
 void _frame(num timestep) {
+  _application.preRenderCallback(_scene._context);
   _scene._frame(timestep);
+  _application.postRenderCallback(_scene._context);
   window.requestAnimationFrame(_frame);
 }
 
