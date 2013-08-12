@@ -26,6 +26,7 @@ class Scene {
     _context = canvas.getContext('2d');
     // TODO: touch events
     canvas.onClick.listen((e) => _onClick(e as MouseEvent));
+    canvas.onMouseMove.listen((e) => _application.onMouseMove(e as MouseEvent));
     document.onKeyDown.listen((e) => _onKeyDown(e as KeyboardEvent));
     document.body.nodes.add(canvas);
   }
