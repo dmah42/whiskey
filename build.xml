@@ -15,8 +15,7 @@
   <property name="dart.sdk.dir" value="${env.DART_SDK}" />
   <property name="dartdoc.dart"
     value="${dart.sdk.dir}/lib/dartdoc/dartdoc.dart" />
-  <property name="dart_analyzer" value="${dart.sdk.dir}/bin/dart_analyzer" />
-  <property name="dart_analyzer.args" value="--enable_type_checks" />
+  <property name="dartanalyzer" value="${dart.sdk.dir}/bin/dartanalyzer" />
 
   <!-- Set envvar WHISK_WITH_CHECKS to compile with checks. -->
   <condition property="withChecks" value="true">
@@ -24,12 +23,12 @@
   </condition>
   <property name="withChecks" value="false" />
 
-  <macrodef name="dart_analyze">
+  <macrodef name="dartanalyze">
     <attribute name="file" />
     <sequential>
       <echo>Analyzing @{file}</echo>
-      <exec executable="${dart_analyzer}" failonerror="true">
-        <arg line="${dart_analyzer.args} @{file}" />
+      <exec executable="${dartanalyzer}" failonerror="true">
+        <arg line="@{file}" />
       </exec>
     </sequential>
   </macrodef>
@@ -73,9 +72,9 @@
     description="Analyze, and generate JS for engine and editor." />
 
   <target name="analyze">
-    <dart_analyze file="lib/whiskey.dart" />
-    <dart_analyze file="test_whiskey.dart" />
-    <dart_analyze file="test_editor.dart" />
+    <dartanalyze file="lib/whiskey.dart" />
+    <dartanalyze file="test_whiskey.dart" />
+    <dartanalyze file="test_editor.dart" />
   </target>
 
   <target name="generate-doc" description="Generate DartDoc for library.">
