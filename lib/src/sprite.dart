@@ -28,7 +28,10 @@ class Sprite {
 
   void _draw(CanvasRenderingContext2D ctx) {
     if (!_loaded) return;
-    ctx.drawImage(_image, _x, _y);
+
+    ctx.drawImageScaled(_image, _scene._scaleWidth(_x), _scene._scaleHeight(_y),
+                        _scene._scaleWidth(_image.width),
+                        _scene._scaleHeight(_image.height));
   }
 
   Map<String, dynamic> _toJSON() {

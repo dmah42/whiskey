@@ -21,10 +21,10 @@ part 'src/words.dart';
 Application _application = new Application();
 Scene _scene = null;
 
-void loadScene(String json) {
+void loadScene(int width, int height, String json) {
   assert(_scene == null);
   Map<String, dynamic> sceneJSON = JSON.parse(json);
-  _scene = new Scene._fromJSON(sceneJSON);
+  _scene = new Scene._fromJSON(width, height, sceneJSON);
 }
 
 String saveScene() => JSON.stringify(_scene._toJSON());

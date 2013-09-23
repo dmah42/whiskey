@@ -7,9 +7,9 @@ class Scene {
     _createCanvas();
   }
 
-  Scene._fromJSON(Map<String, dynamic> json)
-      : _width = json['width'],
-        _height = json['height'],
+  Scene._fromJSON(this._width, this._height, Map<String, dynamic> json)
+      : _jsonWidth = json['width'],
+        _jsonHeight = json['height'],
         _pages = new List<Page>(),
         _current_page = json['current_page'] {
     json['pages'].forEach((p) => _add(new Page._fromJSON(p)));
@@ -17,7 +17,9 @@ class Scene {
   }
 
   void _createCanvas() {
-    CanvasElement canvas = new CanvasElement(width: _width, height: _height);
+    CanvasElement canvas = new CanvasElement(width: _width,
+                                             height: _height);
+    canvas.id = "whiskey.canvas";
     // TODO: set this outside the library.
     canvas.style
         ..position = "absolute"
@@ -78,9 +80,14 @@ class Scene {
     return attributes;
   }
 
+  double _scaleWidth(int width) => (width.toDouble() / _jsonWidth) * _width;
+  double _scaleHeight(int height) => (height.toDouble() / _jsonHeight) * _height;
+
   CanvasRenderingContext2D _context;
   int _width;
   int _height;
+  int _jsonWidth;
+  int _jsonHeight;
   List<Page> _pages;
   int _current_page;
 }

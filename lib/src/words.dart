@@ -15,9 +15,10 @@ class Words {
     context.font = _font;
     context.fillStyle = _color;
     if (_w != null) {
-      context.fillText(_text, _x, _y, _w);
+      context.fillText(_text, _scene._scaleWidth(_x), _scene._scaleHeight(_y),
+                       _scene._scaleWidth(_w));
     } else {
-      context.fillText(_text, _x, _y);
+      context.fillText(_text, _scene._scaleWidth(_x), _scene._scaleHeight(_y));
     }
     context.fillStyle = fill;
   }

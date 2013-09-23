@@ -40,7 +40,10 @@ class AnimatedSprite extends Sprite {
     if (!_loaded) return;
     ctx.drawImageScaledFromSource(_image, _column, _row,
                                   _image.width, _image.height,
-                                  _x, _y, _image.width, _image.height);
+                                  _scene._scaleWidth(_x),
+                                  _scene._scaleHeight(_y),
+                                  _scene._scaleWidth(_image.width),
+                                  _scene._scaleHeight(_image.height));
   }
 
   Map<String, dynamic> _toJSON() {

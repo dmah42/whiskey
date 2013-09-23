@@ -13,7 +13,7 @@ void main() {
   HttpRequest.getString('data/scene.json').then((response) {
       print('Received $response');
       whiskey.setApplication(new TestWhiskey());
-      whiskey.loadScene(response);
+      whiskey.loadScene(SCREEN_WIDTH, SCREEN_HEIGHT, response);
       print('Starting whiskey');
       whiskey.run();
   });
